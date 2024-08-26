@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'iOS_4ai'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of iOS_4ai.'
+  s.summary          = 'This pod is for AI chat boat.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -21,17 +21,20 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/jayesh_tourtech/iOS_4ai'
+  s.homepage         = 'https://github.com/TOUR-TECH-TOP/4AI_SWIFT.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'jayesh_tourtech' => 'jayesh@tourtech.co.il' }
-  s.source           = { :git => 'https://github.com/jayesh_tourtech/iOS_4ai.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/TOUR-TECH-TOP/4AI_SWIFT.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'iOS_4ai/Classes/**/*'
+  s.source_files = 'Classes/**/*.swift'
   
+  s.swift_versions   = ['5.0'] # Replace with your Swift version
+
+
   # s.resource_bundles = {
   #   'iOS_4ai' => ['iOS_4ai/Assets/*.png']
   # }

@@ -1,0 +1,16 @@
+PODS:
+  - iOS_4ai (0.1.0)
+
+DEPENDENCIES:
+  - iOS_4ai (from `../`)
+
+EXTERNAL SOURCES:
+  iOS_4ai:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  iOS_4ai: d7f5cfb15f99ebb0deb5f4d2cee3f9142c55cde4
+
+PODFILE CHECKSUM: 997ed3461354917bd9a7003b8a3227910c7be09f
+
+COCOAPODS: 1.15.2

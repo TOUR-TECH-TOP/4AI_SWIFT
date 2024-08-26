@@ -1,0 +1,22 @@
+{
+  "name": "iOS_4ai",
+  "version": "0.1.0",
+  "summary": "A short description of iOS_4ai.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/jayesh_tourtech/iOS_4ai",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "jayesh_tourtech": "jayesh@tourtech.co.il"
+  },
+  "source": {
+    "git": "https://github.com/jayesh_tourtech/iOS_4ai.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "iOS_4ai/Classes/**/*"
+}
