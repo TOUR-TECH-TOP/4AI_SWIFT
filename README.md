@@ -25,7 +25,7 @@
   swift
   import iOS_4ai
 
-        let chatVC = iOS_4ai(mySiteId: siteId)
+        let chatVC = iOS_4ai(mySiteId: siteId) // Replace this with your actual dynamic siteId
         present(chatVC, animated: true, completion: nil)
   
 
