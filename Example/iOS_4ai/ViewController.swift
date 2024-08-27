@@ -12,7 +12,7 @@ import iOS_4ai
 
 
 class ViewController: UIViewController {
-//    let siteId = "NEFJQ0hBVEtFWTEw" // Replace with actual logic to generate the siteId
+//    let siteId = "" // Replace with actual logic to generate the siteId
 
     override func viewDidLoad() {
         super.viewDidLoad()
