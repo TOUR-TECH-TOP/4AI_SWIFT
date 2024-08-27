@@ -119,7 +119,7 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 target 'MyApp' do
-  pod 'iOS_4ai', '~> 0.4'
+  pod 'iOS_4ai', '~> 0.5'
 end
 ```
 and than 
