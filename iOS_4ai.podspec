@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'iOS_4ai'
-  s.version          = '0.4.0'
+  s.version          = '0.5.0'
   s.summary          = 'This pod is for AI chat boat.'
   
 # This description is used to generate tags and improve search results.
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/TOUR-TECH-TOP/4AI_SWIFT.git'
+  s.homepage         = 'https://github.com/TOUR-TECH-TOP/4AI_SWIFT/blob/develop/README.md'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'jayesh_tourtech' => 'jayesh@tourtech.co.il' }
