@@ -478,6 +478,7 @@
 			baseConfigurationReference = 26DE9DC762055043F005CA39 /* Pods-iOS_4ai_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = iOS_4ai/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -494,6 +495,7 @@
 			baseConfigurationReference = 27A6E645C7DD5B1748193F93 /* Pods-iOS_4ai_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = iOS_4ai/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -509,6 +511,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2B33B9F6E3978B43459E0D2F /* Pods-iOS_4ai_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -532,6 +535,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0768F3D9AD996685835DD0F1 /* Pods-iOS_4ai_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",

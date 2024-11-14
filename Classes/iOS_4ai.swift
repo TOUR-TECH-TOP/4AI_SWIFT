@@ -8,9 +8,8 @@ public class iOS_4ai: UIViewController {
     
     public init(mySiteId: String) {
         super.init(nibName: nil, bundle: nil)
-        print("mySiteId: ", mySiteId)
+//        print("mySiteId: ", mySiteId)
         self.loadChat(siteId: mySiteId)
-
     }
     
     required init?(coder: NSCoder) {
@@ -27,24 +26,7 @@ public class iOS_4ai: UIViewController {
     }
     
     func loadChat(siteId: String) {
-        // Your HTML content
-        let htmlString = """
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta name="keywords" content="">
-            <meta name="description" content="">
-            <title>chat</title>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-            <script id="chat-script" src="https://4ai.chat/embed.js?siteId=\(siteId)&app=mobile"></script>
-        </head>
-        <body>
-        </body>
-        </html>
-        """
-        
+
         webView = WKWebView(frame: self.view.frame)
         
         webView.translatesAutoresizingMaskIntoConstraints = false
@@ -61,8 +43,14 @@ public class iOS_4ai: UIViewController {
             webView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ])
                 
-        // Do any additional setup after loading the view, typically from a nib.
-        webView.loadHTMLString(htmlString, baseURL: nil)
+        webView.configuration.preferences.javaScriptEnabled = true
+        webView.configuration.allowsInlineMediaPlayback = true
+        
+        // Load the URL directly
+              if let url = URL(string: "https://4ai.chat/mobile-script?siteId=\(siteId)") {
+                  let request = URLRequest(url: url)
+                  webView.load(request)
+              }
     }
 
 }

@@ -23,11 +23,74 @@
 - **Usage**: After installation, they can use your SDK like this:
 
   swift
-  import iOS_4ai
+//
+//  ViewController.swift
+//  iOS_4ai
+//
+//  Created by jayesh_tourtech on 08/26/2024.
+//  Copyright (c) 2024 jayesh_tourtech. All rights reserved.
+//
 
-        let chatVC = iOS_4ai(mySiteId: siteId) // Replace this with your actual dynamic siteId
-        present(chatVC, animated: true, completion: nil)
-  
+import UIKit
+import WebKit
+import iOS_4ai
+import AVFoundation
+
+class ViewController: UIViewController {
+//    let siteId = "" // Replace with actual logic to generate the siteId
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidLayoutSubviews() {
+//        let chatVC = iOS_4ai(mySiteId: siteId)
+//        present(chatVC, animated: true, completion: nil)
+        
+        // Check if microphone permission is granted
+        checkAndRequestAudioPermission { [weak self] granted in
+            if granted {
+                // If permission is granted, present the chat view controller
+                DispatchQueue.main.async {
+                    let chatVC = iOS_4ai(mySiteId: "your_site_id") // Replace with actual logic to generate the siteId
+                    self?.present(chatVC, animated: true, completion: nil)
+                }
+            } else {
+                // Handle the case where permission is denied
+                print("Audio permission denied. Cannot proceed with voice chat.")
+                // Optionally, present an alert to the user here.
+            }
+        }
+    }
+    
+    
+    private func checkAndRequestAudioPermission(completion: @escaping (Bool) -> Void) {
+        let audioSession = AVAudioSession.sharedInstance()
+        
+        // Check if permission has already been granted
+        if audioSession.recordPermission() == .granted {
+            // Permission already granted
+            completion(true)
+        } else if audioSession.recordPermission() == .denied {
+            // Permission denied
+            completion(false)
+        } else {
+            // If permission is undetermined, request permission
+            audioSession.requestRecordPermission { granted in
+                completion(granted)
+            }
+        }
+    }
+
+}
+
+
 
   *Inside your SDK (CocoaPod):*
 
@@ -43,9 +106,8 @@ public class iOS_4ai: UIViewController {
     
     public init(mySiteId: String) {
         super.init(nibName: nil, bundle: nil)
-        print("mySiteId: ", mySiteId)
+//        print("mySiteId: ", mySiteId)
         self.loadChat(siteId: mySiteId)
-
     }
     
     required init?(coder: NSCoder) {
@@ -62,24 +124,7 @@ public class iOS_4ai: UIViewController {
     }
     
     func loadChat(siteId: String) {
-        // Your HTML content
-        let htmlString = """
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta name="keywords" content="">
-            <meta name="description" content="">
-            <title>chat</title>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-            <script id="chat-script" src="https://4ai.chat/embed.js?siteId=\(siteId)&app=mobile"></script>
-        </head>
-        <body>
-        </body>
-        </html>
-        """
-        
+
         webView = WKWebView(frame: self.view.frame)
         
         webView.translatesAutoresizingMaskIntoConstraints = false
@@ -96,11 +141,19 @@ public class iOS_4ai: UIViewController {
             webView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ])
                 
-        // Do any additional setup after loading the view, typically from a nib.
-        webView.loadHTMLString(htmlString, baseURL: nil)
+        webView.configuration.preferences.javaScriptEnabled = true
+        webView.configuration.allowsInlineMediaPlayback = true
+        
+        // Load the URL directly
+              if let url = URL(string: "https://4ai.chat/mobile-script?siteId=\(siteId)") {
+                  let request = URLRequest(url: url)
+                  webView.load(request)
+              }
     }
 
 }
+
+
 
 ### Summary:
 
@@ -119,7 +172,7 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 target 'MyApp' do
-  pod 'iOS_4ai', '~> 0.5'
+  pod 'iOS_4ai', '~> 0.6'
 end
 ```
 and than 
