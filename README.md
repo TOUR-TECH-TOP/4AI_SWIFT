@@ -37,7 +37,6 @@ import iOS_4ai
 import AVFoundation
 
 class ViewController: UIViewController {
-//    let siteId = "" // Replace with actual logic to generate the siteId
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,9 +49,6 @@ class ViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-//        let chatVC = iOS_4ai(mySiteId: siteId)
-//        present(chatVC, animated: true, completion: nil)
-        
         // Check if microphone permission is granted
         checkAndRequestAudioPermission { [weak self] granted in
             if granted {
@@ -92,10 +88,10 @@ class ViewController: UIViewController {
 
 
 
-  *Inside your SDK (CocoaPod):*
+*Inside your SDK (CocoaPod):*
 
-  swift
-  // iOS_4ai.swift inside the pod
+swift
+// iOS_4ai.swift inside the pod
 import UIKit
 import WebKit
 
@@ -106,7 +102,6 @@ public class iOS_4ai: UIViewController {
     
     public init(mySiteId: String) {
         super.init(nibName: nil, bundle: nil)
-//        print("mySiteId: ", mySiteId)
         self.loadChat(siteId: mySiteId)
     }
     
